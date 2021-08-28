@@ -2,26 +2,15 @@ const express = require('express');
 
 const router = express.Router();
 
-const publicationModel = require('../models/publicationmodel');
+const {
+    addPublication,
+    getAllPublications,
+    getPublisherbyId
+} = require('../controllers/publicationController')
 
-router.post('/', async(req,res) =>{
-    const {
-        publicationData
-    } = req.body;
+router.post('/', addPublication);
 
-    try{
-        const publication = await publicationModel.create(publicationData);
-        res.json({
-            data: publication,
-            message: "Successful"
-        });
-    }
-    catch(error){
-        res.json({
-            data: [],
-            message: "Error"
-        });
-    }
-})
+router.get('/', getAllPublications);
+router.get('/:publication_id', getPublisherbyId);
 
 module.exports = router

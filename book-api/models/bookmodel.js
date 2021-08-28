@@ -2,17 +2,16 @@ const mongoose = require('mongoose');
 const dbConn = require('../database/db');
 
 var bookSchema = mongoose.Schema({
-    ISBN: String,
-    title: {
-        type: String,
-        require: true
-    },
-    authors: Array,
+    id:Number,
+    ISBN:String,
+    name:String,
+    author:Array,
+    publication: Array,
     language: String,
-    pubDate: String,
-    numOfPage: Number,
-    category: Array,
-    publication: Number,
+    ratings: Number,
+    no_of_pages :Number,
+    price:Number,
+    category: Array
 },{
     strict: false
 });

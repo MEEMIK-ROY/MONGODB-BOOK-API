@@ -2,12 +2,15 @@ const mongoose = require('mongoose');
 const dbConn = require('../database/db');
 
 var authorSchema = mongoose.Schema({
-    id: Number,
-    name: {
-        type: String,
-        require: true
-    },
-    books: Array
+    id:Number,
+    name: String,
+    contact_number:String,
+    email_id:String,
+    age:Number,
+    books: Array,
+    publisher_assc: Array,
+    country:String,
+    gender:String,
 },{
     strict: false
 });
